@@ -48,17 +48,25 @@ public class MainActivity extends AppCompatActivity {
                     chronometer.stop();
                     pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
                     running = false;
+                    Toast.makeText(MainActivity.this, "Paused", Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(MainActivity.this, "Paused", Toast.LENGTH_SHORT).show();
+                else{
+                    Toast.makeText(MainActivity.this, "Please start the timer first.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!running){Toast.makeText(MainActivity.this, "Please start the timer first.", Toast.LENGTH_SHORT).show();}
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 pauseOffset = 0;
-                Toast.makeText(MainActivity.this, "Stopped", Toast.LENGTH_SHORT).show();
+                chronometer.stop();
+                if (running) {
+                    Toast.makeText(MainActivity.this, "Stopped", Toast.LENGTH_SHORT).show();
+                }
+                running = false;
             }
         });
     }
