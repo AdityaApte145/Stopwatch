@@ -1,6 +1,7 @@
 package com.example.stopwatch;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.SystemClock;
 import android.os.Bundle;
 import android.view.View;
@@ -49,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
                     running = false;
                     Toast.makeText(MainActivity.this, "Paused", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     Toast.makeText(MainActivity.this, "Please start the timer first.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -59,13 +59,10 @@ public class MainActivity extends AppCompatActivity {
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!running){Toast.makeText(MainActivity.this, "Please start the timer first.", Toast.LENGTH_SHORT).show();}
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 pauseOffset = 0;
                 chronometer.stop();
-                if (running) {
-                    Toast.makeText(MainActivity.this, "Stopped", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(MainActivity.this, "Stopped", Toast.LENGTH_SHORT).show();
                 running = false;
             }
         });
