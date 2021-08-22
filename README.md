@@ -2,7 +2,3 @@
   It is a simple Android Application which provides a basic User Interface to use a stopwatch.
   This Stopwatch application has 3 buttons, Start, Pause and Stop, and a chronometer, when start button is pressed, the timer starts and increses by
   1 second, when pause is pressed, the timer is paused and by pressing start again the timer resumes, when stop is pressed, it resets the timer to 0.
-  
-## Currently known issue
-  When Pause is pressed while the timer is running, the timer will pause, but when stop is clicked it will display a toast saying "Please start the timer first.",
-  instead of displaying "Stopped"
